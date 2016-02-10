@@ -1,0 +1,16 @@
+.custom_navlink {
+    color: $white;
+    border-top: medium solid #primary-color;
+    border-bottom: medium solid #primary-color;
+    letter-spacing: 0.1em;
+    font-size: 10pt;
+    font-weight: 500;
+}
+
+.custom_navlink:hover {
+    color: $white;
+}
+
+.menu > li > a {
+    padding: 0 10px 0 0;
+}

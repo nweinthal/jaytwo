@@ -185,15 +185,22 @@ CMS_PERMISSION = True
 CMS_PLACEHOLDER_CONF = {}
 
 DATABASES = {
-    'default': {
+    'main': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'HOST': 'parents.cjyv9l0hamok.us-east-1.rds.amazonaws.com',
         'NAME': 'parents',
         'PASSWORD': '5109320817',
         'PORT': '5432',
         'USER': 'root'
-    }
+    },
+    'local': {
+        'NAME': 'local.db',
+        'ENGINE': 'django.db.backends.sqlite3',
+    },
 }
+
+default_database = os.environ.get('DJANGO_DATABASE', 'main')
+DATABASES['default'] = DATABASES[default_database]
 
 MIGRATION_MODULES = {
     'djangocms_flash': 'djangocms_flash.migrations_django',
